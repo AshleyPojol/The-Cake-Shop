@@ -34,6 +34,7 @@ include('includes/header.php');
 		?>
 									
 		<form class="user" action="code.php" method="POST">
+	
 		<div class="form-group">
 		<input type="email" name="email" class="form-control form-control-user" placeholder="Enter Email Address">
 		</div>
@@ -70,7 +71,7 @@ include('includes/header.php');
                                    
 								   
 								   
-		<!-- <div class="text-center"> </div> -->
+		<! <div class="text-center"> </div> -->
 		<!-- <a class="small" href="register.html">Create an Account!</a> </div> -->
 		<!-- </div> </div> -->
 									

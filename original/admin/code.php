@@ -21,7 +21,7 @@ if(isset($_POST['registerbtn']))
     {
         if($password === $cpassword)
         {
-            $query = "INSERT INTO register (username,email,password, usertype) VALUES ('$username','$email','$password, $usertype')";
+            $query = "INSERT INTO register (username,email,password,usertype) VALUES ('$username','$email','$password, $usertype')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
@@ -106,20 +106,27 @@ if(isset($_POST['registerbtn']))
 	{
 		$email_login = $_POST['email'];
 		$password_login = $_POST['password'];
-		
+
+
 		$query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
 		$query_run = mysqli_query($connection, $query);
+		$usertypes = mysqli_fetch_array($query_run);
 	
-	if(mysqli_fetch_array($query_run))
-	{
-		$_SESSION['username'] = $email_login;
-		header('Location: index.php');
-	}
-	else
-	{
-		$_SESSION['status'] = 'Email ID / Password is Invalid';
-		header('Location: login.php');
-	}
+		if($usertypes['usertype'] == "Admin")
+		{
+			$_SESSION['username'] = $email_login;
+			header('Location: index.php');
+		}
+		else if ($usertypes['usertype'] == "Employee")
+		{
+			$_SESSION['username'] = $email_login;
+			header('Location: userindex.php');
+		}
+		else
+		{
+			$_SESSION['status'] = 'Email ID / Password is Invalid';
+			header('Location: login.php');
+		}
 	
 	}
 
