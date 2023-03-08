@@ -262,13 +262,13 @@ if(isset($_POST['registerbtn']))
 		if($query_run)
 		{
 			$_SESSION['koreo'] = 'Ingredient Data is Updated';
-			header('Location: ingredient.php');
+			header('Location: ingredients.php');
 		}
 		else
 		{
 			echo "Ingredient Data is Not Saved";
 			$_SESSION['toru'] = 'Ingredient Data is not Updated';
-			header('Location: ingredient.php');
+			header('Location: ingredients.php');
 		}
 	}
 	
@@ -283,12 +283,12 @@ if(isset($_POST['registerbtn']))
 		if($query_run)
 		{
 			$_SESSION['koreo'] = "Your Data is Deleted";
-			header('Location: product.php');
+			header('Location: ingredients.php');
 		}
 		else
 		{
 			$_SESSION['toru'] = "Your Data is Not Deleted";
-			header('Location: product.php');
+			header('Location: ingredients.php');
 		}
 	}
 	
