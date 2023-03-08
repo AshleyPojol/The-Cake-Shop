@@ -1,6 +1,7 @@
 <?php
 include('security.php');
 
+// Register Section : Admin // 
 if(isset($_POST['registerbtn']))
 {
     $username = $_POST['username'];
@@ -57,6 +58,8 @@ if(isset($_POST['registerbtn']))
 		//		$query = "SELECT * FROM register WHERE id='$id'";
 		//		$query_run = mysqli_query($connection, $query);
 		//	}
+		
+		// Update Button : Admin // 
 
 	if(isset($_POST['updatebtn']))
 	{
@@ -80,6 +83,8 @@ if(isset($_POST['registerbtn']))
 			header ('Location: register.php');
 		}
 	}
+	
+	// Delete Button : Admin // 
 
 	if(isset($_POST['delete_btn']))
 	{
@@ -100,7 +105,7 @@ if(isset($_POST['registerbtn']))
 		}
 	}
 
-
+	// Login Button : Admin / User //
 
 	if(isset($_POST['login_btn']))
 	{
@@ -130,10 +135,37 @@ if(isset($_POST['registerbtn']))
 	
 	}
 
+	// Logout Button : Admin //
+	
 	if(isset($_POST['logout_btn']))
 	{
 		session_destroy();
 		unset($_SESSION['username']);
+	}
+	
+	// Product Section : Admin // 
+	
+	if(isset($_POST['productregbtn']))
+	{
+		$productname = $_POST['productname'];
+		$pquantity = $_POST['pquantity'];
+		$pprice = $_POST['pprice'];
+		
+		$query = "INSERT INTO product (productname,pquantity,pprice) VALUES ('$productname','$pquantity','$pprice')";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			// echo "Product Data is Saved ";
+			$_SESSION['akami'] = 'Product Data is Added';
+			header('Location: product.php');
+		}
+		else
+		{
+			echo "Product Data is Not Saved";
+			$_SESSION['shinzo'] = 'Product Data is not Added';
+			header('Location: product.php');
+		}
 	}
 
 ?>

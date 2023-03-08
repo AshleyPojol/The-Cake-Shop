@@ -104,6 +104,7 @@ include('includes/navbar.php');
           </tr>
         </thead>
         <tbody>
+		
 		<?php
 		if(mysqli_num_rows($query_run) > 0)
 		{

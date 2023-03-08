@@ -51,6 +51,13 @@
     <span>Admin Profile</span></a>
 </li>
 
+<li class="nav-item">
+  <a class="nav-link" href="product.php">
+    <i class="fas fa-fw fa-folder"></i>
+    <span>Product Inventory</span></a>
+</li>
+
+
 
 
 <!-- Nav Item - Utilities Collapse Menu -->
