@@ -30,8 +30,17 @@ include('includes/navbar.php');
 					<input type="text" name="pprice" class="form-control" placeholder="Enter Ingredient Price">
 				</div>
 				
-				<input type="hidden" name="producttype" value="">
-				<input type="hidden" name="producttype" value="">
+				<div class="form-group">
+					<label>Ingredient Unit</label>
+					<select name="producttype" class="form-control" >
+						<option value="Miligram"> Miligram </option>
+						<option value="Kilogram"> Kilogram </option>
+						<option value="Kilo"> Kilo </option>
+						<option value="Litre"> Litre </option>
+						<option value="Gallon"> Gallon </option>
+
+					</select>
+				</div>
 
 			</div>
 			<div class="modal-footer">

@@ -136,9 +136,9 @@ if(isset($_POST['registerbtn']))
 		$productname = $_POST['productname'];
 		$pquantity = $_POST['pquantity'];
 		$pprice = $_POST['pprice'];
-		$producttype = $_POST['producttype'];	
+		$ptype = $_POST['producttype'];	
 		
-		$query = "INSERT INTO product (productname,pquantity,pprice,producttype) VALUES ('$productname','$pquantity','$pprice','$producttype')";
+		$query = "INSERT INTO product (productname,pquantity,pprice,producttype) VALUES ('$productname','$pquantity','$pprice','$ptype')";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -209,4 +209,88 @@ if(isset($_POST['registerbtn']))
 			header('Location: product.php');
 		}
 	}
+	
+	
+	// Ingredients Section : Admin // 
+	
+		if(isset($_POST['ingregbtn']))
+	{
+		$iname = $_POST['name'];
+		$isize = $_POST['size'];
+		$iprice = $_POST['price'];
+		$iquantity = $_POST['quantity'];	
+		
+		
+		
+		$query = "INSERT INTO ingredients (name,size,price,quantity) VALUES ('$iname','$isize','$iprice','$iquantity')";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			// echo "Product Data is Saved ";
+			$_SESSION['koreo'] = 'Product Data is Added';
+			header('Location: ingredients.php');
+		}
+		else
+		{
+			echo "Product Data is Not Saved";
+			$_SESSION['toru'] = 'Product Data is not Added';
+			header('Location: ingredients.php');
+		}
+	}
+	
+	if(isset($_POST['iedit_btn']))
+	{
+		$id = $_POST['iedit_id'];
+		$query = "SELECT * FROM ingredients WHERE id='$id' ";
+		$query_run = mysqli_query($connection, $query);
+		
+	}
+	// Ingredients Update : Admin // 
+	
+	if(isset($_POST['iupdatebtn']))
+	{
+		$id = $_POST['iedit_id'];
+		$name = $_POST['edit_name'];
+		$size = $_POST['edit_size'];
+		$quantity = $_POST['edit_quantity'];
+		$price = $_POST['edit_price'];
+
+		$query = "UPDATE ingredients SET name='$name', size='$size', quantity='$quantity', price='$price' WHERE id='$id'";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			$_SESSION['koreo'] = 'Ingredient Data is Updated';
+			header('Location: ingredient.php');
+		}
+		else
+		{
+			echo "Ingredient Data is Not Saved";
+			$_SESSION['toru'] = 'Ingredient Data is not Updated';
+			header('Location: ingredient.php');
+		}
+	}
+	
+	// Ingredients Delete : Admin // 
+	if(isset($_POST['idelete_btn']))
+	{
+		$id = $_POST['idelete_id'];
+		
+		$query = "DELETE FROM ingredients WHERE id='$id'";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			$_SESSION['koreo'] = "Your Data is Deleted";
+			header('Location: product.php');
+		}
+		else
+		{
+			$_SESSION['toru'] = "Your Data is Not Deleted";
+			header('Location: product.php');
+		}
+	}
+	
+	
 ?>
