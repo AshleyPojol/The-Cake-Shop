@@ -200,5 +200,25 @@ if(isset($_POST['registerbtn']))
 			header('Location: product.php');
 		}
 	}
-
+	
+	// Product Delete : Admin //
+	
+	if(isset($_POST['pdelete_btn']))
+	{
+		$id = $_POST['pdelete_id'];
+		
+		$query = "DELETE FROM product WHERE id='$id'";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			$_SESSION['akami'] = "Your Data is Deleted";
+			header('Location: product.php');
+		}
+		else
+		{
+			$_SESSION['shinzo'] = "Your Data is Not Deleted";
+			header('Location: product.php');
+		}
+	}
 ?>
