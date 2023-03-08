@@ -22,23 +22,29 @@ if(isset($_POST['registerbtn']))
     {
         if($password === $cpassword)
         {
-            $query = "INSERT INTO register (username,email,password,usertype) VALUES ('$username','$email','$password, $usertype')";
-            $query_run = mysqli_query($connection, $query);
+            $query = "INSERT INTO register (username,email,password,usertype) VALUES ('$username','$email','$password', '$usertype')";
+            $query_run = mysqli_query($connection, $query);	
             
             if($query_run)
             {
+				
 				$_SESSION['success'] = "Admin Profile Added";
+                // echo "Saved";
+             //   $_SESSION['status'] = "Admin Profile Added";
+             //   $_SESSION['status_code'] = "success";
                 header('Location: register.php');
             }
             else 
             {
                 $_SESSION['status'] = "Admin Profile Not Added";
+             //   $_SESSION['status_code'] = "error";
                 header('Location: register.php');  
             }
         }
         else 
         {
             $_SESSION['status'] = "Password and Confirm Password Does Not Match";
+          //  $_SESSION['status_code'] = "warning";
             header('Location: register.php');  
         }
     }
@@ -136,9 +142,9 @@ if(isset($_POST['registerbtn']))
 		$productname = $_POST['productname'];
 		$pquantity = $_POST['pquantity'];
 		$pprice = $_POST['pprice'];
-		$ptype = $_POST['producttype'];	
+		$producttype = $_POST['producttype'];	
 		
-		$query = "INSERT INTO product (productname,pquantity,pprice,producttype) VALUES ('$productname','$pquantity','$pprice','$ptype')";
+		$query = "INSERT INTO product (productname,pquantity,pprice,producttype) VALUES ('$productname','$pquantity','$pprice','$producttype')";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -215,14 +221,14 @@ if(isset($_POST['registerbtn']))
 	
 		if(isset($_POST['ingregbtn']))
 	{
-		$iname = $_POST['name'];
+		$name = $_POST['name'];
 		$isize = $_POST['size'];
 		$iprice = $_POST['price'];
 		$iquantity = $_POST['quantity'];	
 		
 		
 		
-		$query = "INSERT INTO ingredients (name,size,price,quantity) VALUES ('$iname','$isize','$iprice','$iquantity')";
+		$query = "INSERT INTO ingredients (name,size,price,quantity) VALUES ('$name','$isize','$iprice','$iquantity')";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)

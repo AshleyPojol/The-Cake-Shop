@@ -30,9 +30,9 @@ include('includes/navbar.php');
 	<form action="code.php" method="POST">
 	
 	<input type="hidden" name="edit_id" value="<?php echo $row['id'] ?>">
-						<div class="form-group">
-					<label> Product Name </label>
-					<input type="text" name="productname" class="form-control" placeholder="Enter Product Name">
+		<div class="form-group">
+					<label> Username </label>
+					<input type="text" name="edit_username" value="<?php echo $row['username'] ?>" class="form-control" placeholder="Enter Username">
 				</div>
 				<div class="form-group">
 					<label>Email</label>
