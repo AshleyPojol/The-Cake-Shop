@@ -1,8 +1,7 @@
 <?php
-session_start();
+include ('security.php');
 include('includes/header.php'); 
 include('includes/navbar.php'); 
-include ('security.php');
 ?>
 
 
@@ -69,13 +68,13 @@ include ('security.php');
   <?php
 	if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
 	{
-		echo '<h2 class="bg-primary text-white"> ' .$_SESSION['success']. ' </h2>';
+		echo '<h2> ' .$_SESSION['success']. ' </h2>';
 		unset($_SESSION['success']);
 	}
 	
 	if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
 	{
-		echo '<h2 class="bg-danger"> ' .$_SESSION['status']. ' </h2>';
+		echo '<h2> ' .$_SESSION['status']. ' </h2>';
 		unset($_SESSION['status']);
 	}
 		?>

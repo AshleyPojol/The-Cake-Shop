@@ -1,4 +1,6 @@
 <?php 
+include ('security.php');
+
 include('includes/header.php');
 include('includes/navbar.php');
 ?>
@@ -37,7 +39,7 @@ include('includes/navbar.php');
 											
 											<?php
 											
-											require 'dbconfig.php';
+											require './database/dbconfig.php';
 											
 										//	$connection = mysqli_connect('localhost','root','','adminpanel','3307');
 												

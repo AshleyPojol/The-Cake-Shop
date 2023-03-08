@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('security.php');
 
 if(isset($_POST['registerbtn']))
@@ -51,13 +50,12 @@ if(isset($_POST['registerbtn']))
 }
 
 
-
-//	if(isset($_POST['edit_btn']))
-//	{
-//		$id = $_POST['edit_id'];
-//		$query = "SELECT * FROM register WHERE id='$id'";
-//		$query_run = mysqli_query($connection, $query);
-//	}
+		//	if(isset($_POST['edit_btn']))
+		//	{
+		//		$id = $_POST['edit_id'];
+		//		$query = "SELECT * FROM register WHERE id='$id'";
+		//		$query_run = mysqli_query($connection, $query);
+		//	}
 
 	if(isset($_POST['updatebtn']))
 	{
@@ -109,5 +107,24 @@ if(isset($_POST['registerbtn']))
 		
 		$query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
 		$query_run = mysqli_query($connection, $query);
+	
+	if(mysqli_fetch_array($query_run))
+	{
+		$_SESSION['username'] = $email_login;
+		header('Location: index.php');
 	}
+	else
+	{
+		$_SESSION['status'] = 'Email ID / Password is Invalid';
+		header('Location: login.php');
+	}
+	
+	}
+
+	if(isset($_POST['logout_btn']))
+	{
+		session_destroy();
+		unset($_SESSION['username']);
+	}
+	
 ?>
