@@ -29,6 +29,8 @@ include('includes/navbar.php');
 					<label> Product Price</label>
 					<input type="text" name="pprice" class="form-control" placeholder="Enter Product Price">
 				</div>
+				
+				<input type="hidden" name="producttype" value="admin">
 
 			</div>
 			<div class="modal-footer">
@@ -106,7 +108,7 @@ include('includes/navbar.php');
             <td> <?php echo $row['productname'];?> </td>
             <td> <?php echo $row['pquantity'];?> </td>
             <td> <?php echo $row['pprice'];?> </td>
-			<td> <?php echo $row['punit'];?> </td>
+			<td> <?php echo $row['producttype'];?> </td>
             <td>
                 <form action="product_edit.php" method="post">
                     <input type="hidden" name="pedit_id" value="<?php echo $row['id']; ?>">

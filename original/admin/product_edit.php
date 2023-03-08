@@ -44,7 +44,7 @@ include('includes/navbar.php');
 				</div>
 				<div class="form-group">
 					<label>Product Unit</label>
-					<select name="update_punit" class="form-control" >
+					<select name="update_producttype" class="form-control" >
 						<option value="Miligram"> Miligram </option>
 						<option value="Kilogram"> Kilogram </option>
 						<option value="Kilo"> Kilo </option>

@@ -27,39 +27,25 @@ if(isset($_POST['registerbtn']))
             
             if($query_run)
             {
-				
 				$_SESSION['success'] = "Admin Profile Added";
-                // echo "Saved";
-             //   $_SESSION['status'] = "Admin Profile Added";
-             //   $_SESSION['status_code'] = "success";
                 header('Location: register.php');
             }
             else 
             {
                 $_SESSION['status'] = "Admin Profile Not Added";
-             //   $_SESSION['status_code'] = "error";
                 header('Location: register.php');  
             }
         }
         else 
         {
             $_SESSION['status'] = "Password and Confirm Password Does Not Match";
-          //  $_SESSION['status_code'] = "warning";
             header('Location: register.php');  
         }
     }
 
 }
 
-
-		//	if(isset($_POST['edit_btn']))
-		//	{
-		//		$id = $_POST['edit_id'];
-		//		$query = "SELECT * FROM register WHERE id='$id'";
-		//		$query_run = mysqli_query($connection, $query);
-		//	}
-		
-		// Update Button : Admin // 
+	// Update Button : Admin // 
 
 	if(isset($_POST['updatebtn']))
 	{
@@ -68,7 +54,7 @@ if(isset($_POST['registerbtn']))
 		$email = $_POST['edit_email'];
 		$password = $_POST['edit_password'];
 		$usertypeupdate = $_POST['update_usertype'];
-
+		
 		$query = "UPDATE register SET username='$username', email='$email', password='$password', usertype='$usertypeupdate' WHERE id='$id'";
 		$query_run = mysqli_query($connection, $query);
 		
@@ -150,8 +136,9 @@ if(isset($_POST['registerbtn']))
 		$productname = $_POST['productname'];
 		$pquantity = $_POST['pquantity'];
 		$pprice = $_POST['pprice'];
+		$producttype = $_POST['producttype'];	
 		
-		$query = "INSERT INTO product (productname,pquantity,pprice) VALUES ('$productname','$pquantity','$pprice')";
+		$query = "INSERT INTO product (productname,pquantity,pprice,producttype) VALUES ('$productname','$pquantity','$pprice','$producttype')";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -184,8 +171,9 @@ if(isset($_POST['registerbtn']))
 		$productname = $_POST['edit_productname'];
 		$pquantity = $_POST['edit_pquantity'];
 		$pprice = $_POST['edit_pprice'];
-		
-		$query = "UPDATE product SET productname='$productname', pquantity='$pquantity', pprice='$pprice' WHERE id='$id'";
+		$producttypeupdate = $_POST['update_producttype'];
+
+		$query = "UPDATE product SET productname='$productname', pquantity='$pquantity', pprice='$pprice', producttype='$producttypeupdate' WHERE id='$id'";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
