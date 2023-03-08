@@ -20,8 +20,7 @@ include('includes/navbar.php');
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                       
                     </div>
 
                     <!-- Content Row -->
@@ -38,22 +37,13 @@ include('includes/navbar.php');
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 											
 											<?php
-											
 											require './database/dbconfig.php';
-											
-										//	$connection = mysqli_connect('localhost','root','','adminpanel','3307');
-												
-												
 											$query = "SELECT id FROM register ORDER BY id";
 											$query_run = mysqli_query($connection, $query);	
-
 											$row = mysqli_num_rows($query_run);
-											
 											echo '<h5> Total Admin: ' .$row. '</h5>';
 											?>
 											<h1></h1>
-											
-											
 											</div>
                                         </div>
                                         <div class="col-auto">

@@ -36,7 +36,7 @@ include('includes/navbar.php');
 					<input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password">
 				</div>
 
-				<input type="hidden" name="usertype" value="admin">
+				<input type="hidden" name="usertype" value="">
 
 			</div>
 			<div class="modal-footer">

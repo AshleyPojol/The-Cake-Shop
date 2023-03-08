@@ -9,7 +9,7 @@ include('includes/navbar.php');
 <!-- DataTables Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary"> Edit Product Data </h6>
+    <h6 class="m-0 font-weight-bold text-primary"> Edit Ingredient Data </h6>
   </div>
   
   <div class="card-body">
@@ -31,25 +31,25 @@ include('includes/navbar.php');
 	
 	<input type="hidden" name="pedit_id" value="<?php echo $row['id'] ?>">
 				<div class="form-group">
-					<label> Product Name </label>
+					<label> Ingredient Name </label>
 					<input type="text" name="edit_productname" value="<?php echo $row['productname'] ?>" class="form-control" placeholder="Enter Product Name">
 				</div>
 				<div class="form-group">
-					<label> Product Quantity</label>
+					<label> Ingredient Quantity</label>
 					<input type="text" name="edit_pquantity" value="<?php echo $row['pquantity'] ?>" class="form-control" placeholder="Enter Product Quantity">
 				</div>
 				<div class="form-group">
-					<label> Product Price</label>
+					<label> Ingredient Price</label>
 					<input type="text" name="edit_pprice" value="<?php echo $row['pprice'] ?>" class="form-control" placeholder="Enter Product Price">
 				</div>
 				<div class="form-group">
-					<label>Product Unit</label>
+					<label>Ingredient Unit</label>
 					<select name="update_producttype" class="form-control" >
 						<option value="Miligram"> Miligram </option>
 						<option value="Kilogram"> Kilogram </option>
 						<option value="Kilo"> Kilo </option>
 						<option value="Litre"> Litre </option>
-						<option value="Gallon"> Galllon </option>
+						<option value="Gallon"> Gallon </option>
 
 					</select>
 				</div>
