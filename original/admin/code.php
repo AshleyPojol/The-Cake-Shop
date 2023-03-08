@@ -167,5 +167,38 @@ if(isset($_POST['registerbtn']))
 			header('Location: product.php');
 		}
 	}
+	
+	if(isset($_POST['pedit_btn']))
+	{
+		$id = $_POST['pedit_id'];
+		$query = "SELECT * FROM product WHERE id='$id' ";
+		$query_run = mysqli_query($connection, $query);
+		
+	}
+	
+	// Product Update : Admin //
+	
+	if(isset($_POST['pupdatebtn']))
+	{
+		$id = $_POST['pedit_id'];
+		$productname = $_POST['edit_productname'];
+		$pquantity = $_POST['edit_pquantity'];
+		$pprice = $_POST['edit_pprice'];
+		
+		$query = "UPDATE product SET productname='$productname', pquantity='$pquantity', pprice='$pprice' WHERE id='$id'";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			$_SESSION['akami'] = 'Product Data is Updated';
+			header('Location: product.php');
+		}
+		else
+		{
+			echo "Product Data is Not Saved";
+			$_SESSION['shinzo'] = 'Product Data is not Updated';
+			header('Location: product.php');
+		}
+	}
 
 ?>

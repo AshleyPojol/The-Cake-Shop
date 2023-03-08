@@ -52,7 +52,32 @@ include('includes/navbar.php');
 		</h6>
 	  </div>
 	<div class="card-body">
+	
+	 <?php
+	if(isset($_SESSION['akami']) && $_SESSION['akami'] !='') 
+	{
+		echo '<h2> ' .$_SESSION['akami']. ' </h2>';
+		unset($_SESSION['akami']);
+	}
+	
+	if(isset($_SESSION['shinzo']) && $_SESSION['shinzo'] !='') 
+	{
+		echo '<h2> ' .$_SESSION['shinzo']. ' </h2>';
+		unset($_SESSION['shinzo']);
+	}
+		?>
+
 	 <div class="table-responsive">
+	 
+	 <?php
+	
+	$connection = mysqli_connect("localhost", "root", "", "adminpanel", "3307");
+	$query = "SELECT * FROM product";
+	$query_run = mysqli_query($connection, $query);
+	
+	
+	?>
+	
 	 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -66,14 +91,45 @@ include('includes/navbar.php');
           </tr>
         </thead>
         <tbody>
-		 <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-			<td></td>
+	<?php
+		if(mysqli_num_rows($query_run) > 0)
+		{
+			while($row = mysqli_fetch_assoc($query_run))
+			{
 			
-         </tr>
+			?>
+			
+		
+		
+          <tr>
+            <td> <?php echo $row['id'];?> </td>
+            <td> <?php echo $row['productname'];?> </td>
+            <td> <?php echo $row['pquantity'];?> </td>
+            <td> <?php echo $row['pprice'];?> </td>
+			<td> <?php echo $row['punit'];?> </td>
+            <td>
+                <form action="product_edit.php" method="post">
+                    <input type="hidden" name="pedit_id" value="<?php echo $row['id']; ?>">
+                    <button type="submit" name="pedit_btn" class="btn btn-success"> EDIT </button>
+                </form>
+            </td>
+			
+            <td>
+                <form action="code.php" method="post">
+                  <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                  <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
+                </form>
+            </td>
+          </tr>
+			
+         <?php
+			}
+		
+		}
+		else {
+			echo "No Record Found";
+		}
+		?>
 		 </tbody>
 		 </table>
 		 </div>
