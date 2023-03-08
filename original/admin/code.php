@@ -7,6 +7,7 @@ if(isset($_POST['registerbtn']))
     $email = $_POST['email'];
     $password = $_POST['password'];
     $cpassword = $_POST['confirmpassword'];
+	$usertype = $_POST['usertype'];
 
     $email_query = "SELECT * FROM register WHERE email='$email' ";
     $email_query_run = mysqli_query($connection, $email_query);
@@ -20,7 +21,7 @@ if(isset($_POST['registerbtn']))
     {
         if($password === $cpassword)
         {
-            $query = "INSERT INTO register (username,email,password) VALUES ('$username','$email','$password')";
+            $query = "INSERT INTO register (username,email,password, usertype) VALUES ('$username','$email','$password, $usertype')";
             $query_run = mysqli_query($connection, $query);
             
             if($query_run)
@@ -63,8 +64,9 @@ if(isset($_POST['registerbtn']))
 		$username = $_POST['edit_username'];
 		$email = $_POST['edit_email'];
 		$password = $_POST['edit_password'];
-		
-		$query = "UPDATE register SET username='$username', email='$email', password='$password' WHERE id='$id'";
+		$usertypeupdate = $_POST['update_usertype'];
+
+		$query = "UPDATE register SET username='$username', email='$email', password='$password', usertype='$usertypeupdate' WHERE id='$id'";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -126,5 +128,5 @@ if(isset($_POST['registerbtn']))
 		session_destroy();
 		unset($_SESSION['username']);
 	}
-	
+
 ?>
