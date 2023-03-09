@@ -142,9 +142,10 @@ if(isset($_POST['registerbtn']))
 		$productname = $_POST['productname'];
 		$pquantity = $_POST['pquantity'];
 		$pprice = $_POST['pprice'];
-		$producttype = $_POST['producttype'];	
+		$producttype = $_POST['producttype'];
+		$productstatus = $_POST['productstatus'];
 		
-		$query = "INSERT INTO product (productname,pquantity,pprice,producttype) VALUES ('$productname','$pquantity','$pprice','$producttype')";
+		$query = "INSERT INTO product (productname,pquantity,pprice,producttype,productstatus) VALUES ('$productname','$pquantity','$pprice','$producttype', '$productstatus')";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -178,8 +179,9 @@ if(isset($_POST['registerbtn']))
 		$pquantity = $_POST['edit_pquantity'];
 		$pprice = $_POST['edit_pprice'];
 		$producttypeupdate = $_POST['update_producttype'];
+		$productstatusupdate = $_POST['update_productstatus'];
 
-		$query = "UPDATE product SET productname='$productname', pquantity='$pquantity', pprice='$pprice', producttype='$producttypeupdate' WHERE id='$id'";
+		$query = "UPDATE product SET productname='$productname', pquantity='$pquantity', pprice='$pprice', producttype='$producttypeupdate', productstatus='$productstatusupdate' WHERE id='$id'";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -224,11 +226,12 @@ if(isset($_POST['registerbtn']))
 		$name = $_POST['name'];
 		$isize = $_POST['size'];
 		$iprice = $_POST['price'];
-		$iquantity = $_POST['quantity'];	
+		$iquantity = $_POST['quantity'];
+		$status = $_POST['status'];
 		
 		
 		
-		$query = "INSERT INTO ingredients (name,size,price,quantity) VALUES ('$name','$isize','$iprice','$iquantity')";
+		$query = "INSERT INTO ingredients (name,size,price,quantity,status) VALUES ('$name','$isize','$iprice','$iquantity','$status')";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -261,8 +264,9 @@ if(isset($_POST['registerbtn']))
 		$size = $_POST['edit_size'];
 		$quantity = $_POST['edit_quantity'];
 		$price = $_POST['edit_price'];
+		$status = $_POST['updated_status'];
 
-		$query = "UPDATE ingredients SET name='$name', size='$size', quantity='$quantity', price='$price' WHERE id='$id'";
+		$query = "UPDATE ingredients SET name='$name', size='$size', quantity='$quantity', price='$price', status='$status' WHERE id='$id'";
 		$query_run = mysqli_query($connection, $query);
 		
 		if($query_run)
@@ -297,6 +301,8 @@ if(isset($_POST['registerbtn']))
 			header('Location: ingredients.php');
 		}
 	}
+	
+	
 	
 	
 ?>

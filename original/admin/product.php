@@ -38,10 +38,10 @@ include('includes/navbar.php');
 						<option value="Kilo"> Kilo </option>
 						<option value="Litre"> Litre </option>
 						<option value="Gallon"> Gallon </option>
-
 					</select>
-
 				</div>
+				
+				<input type="hidden" name="productstatus" value="Accepted">
 
 			</div>
 			<div class="modal-footer">
@@ -99,6 +99,7 @@ include('includes/navbar.php');
             <th>Ingredient Quantity </th>
             <th>Ingredient Price </th>
 			<th>Ingredient Unit</th>
+			<th>Ingredient Status</th>
             <th> EDIT </th>
             <th> DELETE </th>
           </tr>
@@ -120,6 +121,7 @@ include('includes/navbar.php');
             <td> <?php echo $row['pquantity'];?> </td>
             <td> <?php echo $row['pprice'];?> </td>
 			<td> <?php echo $row['producttype'];?> </td>
+			<td> <?php echo $row['productstatus'];?> </td>
             <td>
                 <form action="product_edit.php" method="post">
                     <input type="hidden" name="pedit_id" value="<?php echo $row['id']; ?>">
