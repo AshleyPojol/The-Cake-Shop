@@ -104,8 +104,8 @@ include('includes/navbar.php');
             <th>ID </th>
             <th>Username </th>
             <th>Email </th>
-            <th>User Type</th>
-			<th>Password</th>
+            <th>Password</th>
+			<th>User Type</th>
             <th>EDIT </th>
             <th>DELETE </th>
           </tr>

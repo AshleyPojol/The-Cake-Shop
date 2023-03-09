@@ -101,11 +101,11 @@ if(isset($_POST['registerbtn']))
 
 	if(isset($_POST['login_btn']))
 	{
-		$email_login = $_POST['email'];
+		$email_login = $_POST['username'];
 		$password_login = $_POST['password'];
 
 
-		$query = "SELECT * FROM register WHERE email='$email_login' AND password='$password_login'";
+		$query = "SELECT * FROM register WHERE username='$email_login' AND password='$password_login'";
 		$query_run = mysqli_query($connection, $query);
 		$usertypes = mysqli_fetch_array($query_run);
 	

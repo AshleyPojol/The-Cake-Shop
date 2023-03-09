@@ -2,15 +2,20 @@
 session_start();
 include('includes/header.php');
 ?>
-
+	
     <div class="container">
 
 	<!-- Outer Row -->
 	<div class="row justify-content-center">
+	
 
 	<div class="col-xl-6 col-lg-6 col-md-6">
 
+	
+
 	<div class="card o-hidden border-0 shadow-lg my-5">
+	<img src="./img/background.gif">
+	
 		<div class="card-body p-0">
 	<!-- Nested Row within Card Body -->
 		<div class="row">
@@ -19,8 +24,8 @@ include('includes/header.php');
         <div class="col-lg-12">
         <div class="p-5">
 		<div class="text-center">
-		<h1 class="h4 text-gray-900 mb-4">The Cake Shop</h1>
-			<p class ="p text-gray-900 mb-4"> Welcome to the Login Page</p>
+		<h1 class="h4 text-gray-900 mb-4">THE CAKE SHOP</h1>
+			<p class ="p text-gray-900 mb-4">LOGIN PAGE</p>
 		</div>
 		
 		<?php
@@ -36,7 +41,7 @@ include('includes/header.php');
 		<form class="user" action="code.php" method="POST">
 	
 		<div class="form-group">
-		<input type="email" name="email" class="form-control form-control-user" placeholder="Enter Email Address">
+		<input type="text" name="username" class="form-control form-control-user" placeholder="Enter Username">
 		</div>
                                         
 		<div class="form-group">
