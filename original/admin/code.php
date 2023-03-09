@@ -170,6 +170,31 @@ if(isset($_POST['registerbtn']))
 		
 	}
 	
+	// Product Section : User //
+	if(isset($_POST['aproductregbtn']))
+	{
+		$productname = $_POST['productname'];
+		$pquantity = $_POST['pquantity'];
+		$producttype = $_POST['producttype'];
+		$productstatus = $_POST['productstatus'];
+		
+		$query = "INSERT INTO product (productname,pquantity,producttype,productstatus) VALUES ('$productname','$pquantity','$producttype', '$productstatus')";
+		$query_run = mysqli_query($connection, $query);
+		
+		if($query_run)
+		{
+			// echo "Ingredient has been Requested ";
+			$_SESSION['kuro'] = 'Ingredient has been Requested';
+			header('Location: ingredientsuser.php');
+		}
+		else
+		{
+			echo "Product Data is Not Saved";
+			$_SESSION['ame'] = 'Ingredient has not been Requested';
+			header('Location: ingredientsuser.php');
+		}
+	}
+	
 	// Product Update : Admin //
 	
 	if(isset($_POST['pupdatebtn']))
@@ -254,6 +279,30 @@ if(isset($_POST['registerbtn']))
 		$query = "SELECT * FROM ingredients WHERE id='$id' ";
 		$query_run = mysqli_query($connection, $query);
 		
+	}
+	
+	// Ingredient Section : User // 
+	if(isset($_POST['aingregbtn']))
+	{
+		$name = $_POST['name'];
+		$size = $_POST['size'];
+		$quantity = $_POST['quantity'];
+		$status = $_POST['status'];
+		
+		$query = "INSERT INTO ingredients (name,size,quantity,status) VALUES ('$name','$size','$quantity','$status')";
+		$query_run = mysqli_query($connection, $query);
+		if($query_run)
+		{
+			// echo "Product Data is Saved ";
+			$_SESSION['chillin'] = 'Ingredient has been requested';
+			header('Location: productuser.php');
+		}
+		else
+		{
+			echo "Product Data is Not Saved";
+			$_SESSION['bing'] = 'Ingredient has not been requested';
+			header('Location: productuser.php');
+		}
 	}
 	// Ingredients Update : Admin // 
 	

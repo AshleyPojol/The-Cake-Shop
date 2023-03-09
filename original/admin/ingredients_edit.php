@@ -58,7 +58,7 @@ include('includes/navbar.php');
 				
 				<div class="form-group">
 					<label>Product Size</label>
-					<select name="edit_size" class="form-control" >
+					<select name="edit_size"  class="form-control"  >
 						<option value="Small"> Small </option>
 						<option value="Medium"> Medium </option>
 						<option value="Large"> Large </option>
