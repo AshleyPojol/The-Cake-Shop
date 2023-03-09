@@ -65,6 +65,14 @@ include('includes/navbar.php');
 
 					</select>
 				</div>
+				<div class="form-group">
+					<label>Product Status</label>
+					<select name="updated_status" class="form-control" >
+						<option value="Accepted"> Accepted </option>
+						<option value="Rejected"> Rejected </option>
+						<option value="Pending"> Pending </option>
+					</select>
+				</div>
 				
 					<a href="ingredients.php" class="btn btn-danger"> Cancel </a>
 				<button type="submit" name="iupdatebtn" class="btn btn-primary"> Update </button>

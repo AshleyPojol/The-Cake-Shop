@@ -30,7 +30,6 @@ include('includes/navbar.php');
 						<option value="Spanish Bread"> Spanish Bread </option>
 						<option value="Crinkles"> Crinkles </option>
 						<option value="Cinnamon"> Cinnamon Rolls </option>
-
 					</select>
 				</div>
 				<div class="form-group">
@@ -48,9 +47,9 @@ include('includes/navbar.php');
 						<option value="Small"> Small </option>
 						<option value="Medium"> Medium </option>
 						<option value="Large"> Large </option>
-
 					</select>
 				</div>
+				<input type="hidden" name="status" value="Accepted">
 				
 			
 
@@ -110,6 +109,7 @@ include('includes/navbar.php');
             <th>Product Quantity </th>
             <th>Product Price </th>
 			<th>Product Size</th>
+			<th>Product Status</th>
             <th> EDIT </th>
             <th> DELETE </th>
           </tr>
@@ -131,6 +131,7 @@ include('includes/navbar.php');
             <td> <?php echo $row['quantity'];?> </td>
             <td> <?php echo $row['price'];?> </td>
 			<td> <?php echo $row['size'];?> </td>
+			<td> <?php echo $row['status'];?> </td>
             <td>
                 <form action="ingredients_edit.php" method="post">
                     <input type="hidden" name="iedit_id" value="<?php echo $row['id']; ?>">
